@@ -1,0 +1,332 @@
+\documentclass[10pt,A4]{article}	
+\usepackage[utf8]{inputenc}		
+\usepackage{xstring, xifthen}
+%\usepackage[defaultsans]{droidsans}
+%\usepackage[default]{comfortaa}
+%\usepackage{cmbright}
+\usepackage[default]{raleway}
+%\usepackage{fetamont}
+%\usepackage[default]{gillius}
+%\usepackage[light,math]{iwona}
+%\usepackage[thin]{roboto} 
+\renewcommand*\familydefault{\sfdefault} 	
+\usepackage[T1]{fontenc}
+\usepackage{moresize}
+\usepackage{fontawesome}
+\newcommand{\vcenteredinclude}[1]{\begingroup
+\setbox0=\hbox{\includegraphics{#1}}%
+\parbox{\wd0}{\box0}\endgroup}
+\newcommand*{\vcenteredhbox}[1]{\begingroup
+\setbox0=\hbox{#1}\parbox{\wd0}{\box0}\endgroup}
+\newcommand{\icon}[3] { 							
+	\makebox(#2, #2){\textcolor{maincol}{\csname fa#1\endcsname}}
+}	
+\newcommand{\icontext}[4]{ 						
+	\vcenteredhbox{\icon{#1}{#2}{#3}}  \hspace{2pt}  \parbox{0.9\mpwidth}{\textcolor{#4}{#3}}
+}
+\newcommand{\iconhref}[5]{ 						
+    \vcenteredhbox{\icon{#1}{#2}{#5}}  \hspace{2pt} \href{#4}{\textcolor{#5}{#3}}
+}
+\newcommand{\iconemail}[5]{ 						
+    \vcenteredhbox{\icon{#1}{#2}{#5}}  \hspace{2pt} \href{mailto:#4}{\textcolor{#5}{#3}}
+}
+\usepackage{paracol}
+\usepackage[a4paper]{geometry}
+\geometry{top=1cm, bottom=1cm, left=1cm, right=1cm}
+\usepackage{fancyhdr}
+\pagestyle{empty}
+\setlength{\parindent}{0mm}
+\usepackage{array}
+\newcolumntype{x}[1]{%
+>{\raggedleft\hspace{0pt}}p{#1}}%
+\usepackage{graphicx}
+\usepackage{tikz}				
+\usetikzlibrary{shapes, backgrounds,mindmap, trees}
+\usepackage{transparent}
+\usepackage{color}
+\definecolor{maincol}{RGB}{ 45, 50, 90 }
+\definecolor{darkcol}{RGB}{ 70, 70, 70 }
+\definecolor{lightcol}{RGB}{245,245,245}
+\usepackage[hidelinks]{hyperref}
+\newcommand{\mpwidth}{\linewidth-\fboxsep-\fboxsep}
+\newcommand{\cvlist}[1] {
+	\begin{itemize}{#1}\end{itemize}
+}
+\newcommand{\cvtext}[1] {
+	\begin{tabular*}{1\mpwidth}{p{0.98\mpwidth}}
+		\parbox{1\mpwidth}{#1}
+	\end{tabular*}
+}
+\newcommand{\cvsection}[1] {
+	\vspace{14pt}
+	\cvtext{
+		\textbf{\LARGE{\textcolor{darkcol}{\uppercase{#1}}}}\\[-4pt]
+		\textcolor{maincol}{ \rule{0.1\textwidth}{2pt} } \\
+	}
+}
+\newcommand{\cvskill}[3] {
+	\begin{tabular*}{1\mpwidth}{p{0.72\mpwidth}  r}
+ 		\textcolor{black}{\textbf{#1}} & \textcolor{maincol}{#2}\\
+	\end{tabular*}%
+	
+	\hspace{4pt}
+	\begin{tikzpicture}[scale=1,rounded corners=2pt,very thin]
+		\fill [lightcol] (0,0) rectangle (1\mpwidth, 0.15);
+		\fill [maincol] (0,0) rectangle (#3\mpwidth, 0.15);
+  	\end{tikzpicture}%
+}
+\newcommand{\cvevent}[7] {
+	\parbox{\mpwidth}{
+		\begin{tabular*}{1\mpwidth}{p{0.75\mpwidth}  r}
+	 		\textcolor{black}{\textbf{#2}} & \colorbox{maincol}{\makebox[0.27\mpwidth]{\textcolor{white}{#1}}} \\
+			\textcolor{maincol}{\textbf{#3}} & \\
+		\end{tabular*}\\[4pt]
+	
+		\ifthenelse{\isempty{#4}}{}{
+			\cvtext{#4}\\
+		}
+	}
+
+	\ifthenelse{\isempty{#5}}{}{
+		\vspace{4pt}
+		{#5}
+	}
+	\vspace{4pt}
+}
+\newcommand{\cvmetaevent}[4] {
+	\textcolor{maincol} {\cvtext{\textbf{\begin{flushleft}#1\end{flushleft}}}}
+
+	\ifthenelse{\isempty{#2}}{}{
+	\textcolor{darkcol} {\cvtext{\textbf{#2}} }
+	}
+
+	\ifthenelse{\isempty{#3}}{}{
+		\cvtext{{ \textcolor{darkcol} {#3} }}\\
+	}
+
+	\cvtext{#4}\\[14pt]
+}
+\newcommand{\cvqrcode}[1] {
+	\begin{center}
+		\includegraphics[width={#1}\mpwidth]{qrcode}
+	\end{center}
+}
+\begin{document}
+\columnratio{0.31}
+\setlength{\columnsep}{2.2em}
+\setlength{\columnseprule}{4pt}
+\colseprulecolor{lightcol}
+\begin{paracol}{2}
+\begin{leftcolumn}
+\vfill\null
+\cvsection{CONTACT}
+\iconemail{EnvelopeSquare}{14}{aslampuzhakkalakath777}{aslampuzhakkalakath777@gmail.com}{black}\\[6pt]
+\icontext{Linkedin}{14}{\href{https://www.linkedin.com/in/Aslampuzhakkalakath/}{Aslampuzhakkalakath}}{black}\\[6pt]
+\icontext{Phone}{14}{+91 80751 11955}{black}\\[6pt]
+\vfill\null
+\cvsection{SKILLS}
+\cvskill{LaTeX} {4+ yrs} {1} \\[-4pt]
+\cvskill{XML} {4+ yrs} {1} \\[-4pt]
+\cvskill{HTML} {4+ yrs} {1} \\[-4pt]
+\cvskill{MathML} {4+ yrs} {1} \\[-4pt]
+\cvskill{CSS} {2+ yrs} {0.5} \\[-4pt]
+\cvskill{MySQL} {2+ yrs} {0.5} \\[-4pt]
+\cvskill{BibTeX} {4+ yrs} {1} \\[-4pt]
+\cvskill{MathJax} {4+ yrs} {0.5} \\[-4pt]
+\cvskill{Pdf} {4+ yrs} {1} \\[-4pt]
+\cvskill{Excel} {4+ yrs} {1} \\[-4pt]
+\cvskill{Word} {4+ yrs} {1} \\[-4pt]
+\cvskill{Mac} {2+ yrs} {0.5} \\[-4pt]
+\cvskill{Windows} {4+ yrs} {1} \\[-4pt]
+\cvskill{Git and GitHub} {2+ yrs} {0.5} \\[-4pt]
+\cvskill{gVim} {2+ yrs} {0.5} \\[-4pt]
+\cvskill{TeXfolio} {4+ yrs} {1} \\[-4pt]
+\cvskill{XEditPro} {2+ yrs} {0.5} \\[-4pt]
+\end{leftcolumn}
+\begin{rightcolumn}
+%---------------------------------------------------------------------------------------
+%	TITLE  HEADER
+%----------------------------------------------------------------------------------------
+\fcolorbox{white}{darkcol}{\begin{minipage}[c][3.5cm][c]{1\mpwidth}
+	\begin {center}
+		\HUGE{ \textbf{ \textcolor{white}{ \uppercase{ Mohammed Aslam } } } } \\[-24pt]
+		\textcolor{white}{ \rule{0.1\textwidth}{1.25pt} } \\[4pt]
+		\large{ \textcolor{white} {Production Editor - XML and LaTeX } }
+	\end {center}
+\end{minipage}} \\[14pt]
+\vspace{-12pt}
+
+%---------------------------------------------------------------------------------------
+%	EDUCATION
+%----------------------------------------------------------------------------------------
+%\vfill\null
+\cvsection{EDUCATION}
+
+\cvevent
+	{\textbf{2014 ‐ 2017}}
+	{Diploma in Computer Engineering}
+	{JDT Islam Polytechnic College, Calicut, Kerala, INDIA}
+	{Board of Technical Education Kerala, CGPA: 7.11.}
+\vfill\null
+
+\cvevent
+	{\textbf{2012 - 2014}}
+	{Higher Secondary Education (Science)}
+	{S.M.M.Hss Rayirimangalam, Tanur, Kerala, INDIA}
+	{Kerala Higher Secondary Board, CGPA: 7.0.}
+\vfill\null
+
+\cvevent
+    {\textbf{2010}}
+    {SSLC}
+    {Ideal Public School, Kadlaundi Nagaram, Kerala, INDIA}
+    {CBSE ‐ Central Board of Secondary Education, CGPA: 7.4.}
+\vfill\null
+
+%---------------------------------------------------------------------------------------
+%	WORK EXPERIENCE
+%----------------------------------------------------------------------------------------
+\vfill\null
+\cvsection{WORK EXPERIENCE}
+
+\cvevent
+	{\textbf{Jan 2022 - Ongoing}}
+	{Production Editor for Academic, Scientific, Research Articles}
+	{TeXByte Solutions LLP. (Kannur, Kerala)}
+	{• Typesetting and transforming research papers for international\\ publishers using LaTeX.\\
+• XML Validation and solving XML parse errors.\\
+• Mathml.\\
+• Proofing, Quality Check and Quality Assurance.\\
+• Formatting Reference using bibtex database (Numbered, Harvard,\\ Vancouver, APA and AMA styles).\\
+• LaTeX typesetting and proofing.\\
+• Editors: GVim, TeXfolio.\\
+• STM journals.\\
+• Top Customer: Elsevier.}
+	{}
+\vfill\null
+\vspace{1.5cm}
+\cvevent
+	{\textbf{Apr 2018 - Jan 2020}}
+	{Technical Software Editor}
+	{DiacriTech Technologies Pvt. Ltd. (Arumbakkam, Chennai)}
+	{• Typestting K‐12, Academic, STM and Journals.\\
+• Proof reading, Quality check and Quality Assurance\\
+• XML first workflow.\\
+• HTML and CSS editing.\\
+• Worked XEditPro ‐ Automated Publishing Tool.\\
+• Top Customers: John Wiley, World Scientific, Taylor and Francis,\\
+Cambridge University Press, McGraw‐Hill Education.}
+	{}
+\vfill\null
+%---------------------------------------------------------------------------------------
+%	PUBLICATION
+%----------------------------------------------------------------------------------------
+% \vspace{-0.5cm}
+% \vfill\null
+% \cvsection{PUBLICATIONS}
+
+% \cvevent
+% 	{\textbf{UGC Listed}}
+% 	{Title of your research paper}
+% 	{Journal Name (ISSN: XXXX-XXXX) Vol XX, Issue XX, 20XX}
+% 	{Status: Accepted and Published}
+% 	{}
+% \vfill\null
+
+% \cvevent
+% 	{\textbf{SCI - IF X.XXX}}
+% 	{Title of your research paper}
+% 	{Journal Name (ISSN: XXXX-XXXX) Vol XX, Issue XX, 20XX}
+% 	{Status: Under Review}
+% 	{}
+% \vfill\null
+
+% \cvevent
+% 	{\textbf{SCI - IF X.XXX}}
+% 	{Title of your research paper}
+% 	{Journal Name (ISSN: XXXX-XXXX) Vol XX, Issue XX, 20XX}
+% 	{Status: Under Review}
+% 	{}
+% \vfill\null
+% %---------------------------------------------------------------------------------------
+% %	PROJECTS
+% %----------------------------------------------------------------------------------------
+% \vfill\null
+% \cvsection{PROJECTS}
+
+% \cvevent
+% 	{\textbf{20XX}}
+% 	{Project Name}
+% 	{Tool: Python, Raspberry Pi}
+% 	{A short description of your project.}
+% \vfill\null
+
+
+% \cvevent
+% 	{\textbf{20XX}}
+% 	{Project Name}
+% 	{Tool: Web Development}
+% 	{A short description of your project.}
+% \vfill\null
+
+
+% \cvevent
+% 	{\textbf{20XX}}
+% 	{Project Name}
+% 	{Tool: Android Studio}
+% 	{A short description of your project.}
+% \vfill\null
+
+% %---------------------------------------------------------------------------------------
+% %	WORKSHOPS
+% %----------------------------------------------------------------------------------------
+% \vfill\null
+% \cvsection{WORKSHOPS \& CONFERENCES}
+
+% \cvevent
+% 	{\textbf{Mon 20XX}}
+% 	{Name of Conference}
+% 	{Conducted by}
+% 	{}
+% \vfill\null
+
+% \cvevent
+% 	{\textbf{May 2019}}
+% 	{IEEE Internation Conference on Future of Internet of Things}
+% 	{IEEE \& IIT Kanpur}
+% 	{}
+% \vfill\null
+
+% \cvevent
+% 	{\textbf{Jul 2020}}
+% 	{Online International Workshop on Machine Learning Applications to Images, IoT and Wireless Sensor Networks}
+% 	{University of Essex and IIIT, Lucknow}
+% 	{}
+% \vfill\null
+% %---------------------------------------------------------------------------------------
+% %	SKILLS
+% %----------------------------------------------------------------------------------------
+
+% %---------------------------------------------------------------------------------------
+% %	PERSONAL DETAILS
+% %----------------------------------------------------------------------------------------
+% \vfill\null
+% \cvsection{EXTRACURRICULAR}
+% \vspace{-0.3cm}
+% \begin{itemize}
+%   \item Put all the points that are not covered in \textbf{above sections}.
+%   \item Put all the points that are \textbf{not covered} in above sections.
+%   \item Put all the \textbf{points} that are not covered in above sections.
+%   \item \textbf{Put all the points} that are not covered in above sections.
+% \end{itemize}
+% \vfill\null
+
+
+% hotfixes to create fake-space to ensure the whole height is used
+\vfill
+\vfill
+\vfill
+\end{rightcolumn}
+\end{paracol}
+\end{document}
+
